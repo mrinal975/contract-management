@@ -1,7 +1,5 @@
 <template>
-    <nav class="navbar navbar-dark bg-success navbar-expand-sm">
-
-    </nav>
+    <h1>Spinner</h1>
 </template>
 
 <script>
