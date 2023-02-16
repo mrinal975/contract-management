@@ -52,13 +52,13 @@
                                  </ul>
                             </div>
                             <div class="col-sm-2 d-flex flex-column justify-content-center align-item-center">
-                                <router-link to="/contracts/view/:contractId" class="btn btn-warning my-1 ">
+                                <router-link to="/contacts/view/12" class="btn btn-warning my-1 ">
                                     <i class="fa fa-eye"> </i>
                                 </router-link>
-                                <router-link to="/contracts/edit/:contractId" class="btn btn-primary my-1">
+                                <router-link to="/contacts/edit/323" class="btn btn-primary my-1">
                                     <i class="fa fa-pen"> </i>
                                 </router-link>
-                                <router-link to="/contracts/view/:contractId" class="btn btn-danger my-1">
+                                <router-link to="/contacts/view/98" class="btn btn-danger my-1">
                                     <i class="fa fa-trash"> </i>
                                 </router-link>
                             </div>
