@@ -1,5 +1,5 @@
 <template>
-  <Spinner />
+  <!-- <Spinner /> -->
   <NavBar />
   <router-view />
 </template>

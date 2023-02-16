@@ -34,16 +34,38 @@
       </form>
     </div>
   </div>
-  <pre>{{ contacts }}</pre>
-  <div class="container">
+
+  <!-- Spinner -->
+  <div v-if="loading">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <Spinner />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div v-if="!loading && errorMessage">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="h3 text-danger fw-bold">Network Error</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-3" v-if="contacts.length > 0">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" v-for="contact of contacts" :key="contact.id">
         <div class="card my-2 list-group-item-success">
           <div class="card-body">
             <div class="row align-item-center">
               <div class="col-sm-3">
                 <img
-                  src="../assets/download.png"
+                  :src="contact.img"
                   alt="image not found"
                   class="contact-img"
                 />
@@ -51,13 +73,14 @@
               <div class="col-sm-7">
                 <ul class="list-group">
                   <li class="list-group-item">
-                    Name: <span class="fw-bold">Mrinal</span>
+                    Name: <span class="fw-bold">{{ contact.name }}</span>
                   </li>
                   <li class="list-group-item">
-                    Email: <span class="fw-bold">Mrina</span>
+                    Email: <span class="fw-bold">{{ contact.email }}</span>
                   </li>
                   <li class="list-group-item">
-                    Phone: <span class="fw-bold">+0163</span>
+                    Phone:
+                    <span class="fw-bold">{{ contact.mobile }}</span>
                   </li>
                 </ul>
               </div>
@@ -71,7 +94,7 @@
                   <i class="fa fa-eye"> </i>
                 </router-link>
                 <router-link
-                  to="/contacts/edit/323"
+                  to="/contacts/edit/{{contact.id}}"
                   class="btn btn-primary my-1"
                 >
                   <i class="fa fa-pen"> </i>
@@ -97,7 +120,7 @@ export default {
   name: "Contact Manager",
   data: function () {
     return {
-      loading: false,
+      loading: true,
       contacts: [],
       errorMessage: null,
     };
