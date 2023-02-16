@@ -1,9 +1,8 @@
 <template>
-  <router-view/>
+    AddContact
 </template>
-
 <script>
 export default{
-  name: "App"
+    name:'AddContact'
 }
 </script>
