@@ -1,4 +1,4 @@
-# contact-manager
+# contact-management
 
 ## Project setup
 ```
@@ -15,9 +15,14 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Run your unit tests
 ```
-npm run lint
+npm run test:unit
+```
+
+### Run your end-to-end tests
+```
+npm run test:e2e
 ```
 
 ### Customize configuration
