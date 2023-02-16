@@ -20,8 +20,10 @@ npm i json-server
 ### create a file name db.json save data in it
 
 ### json-server --watch db.json -p 9000
+```
 cd store
 npm start
+```
 ### Compiles and minifies for production
 ```
 npm run build
