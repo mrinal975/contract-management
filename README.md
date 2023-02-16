@@ -9,7 +9,19 @@ npm install
 ```
 npm run serve
 ```
+### Json server create
+```
+mk dir server
+npm init --yes
+npm i json-server
+```
+### store json data
 
+### create a file name db.json save data in it
+
+### json-server --watch db.json -p 9000
+cd store
+npm start
 ### Compiles and minifies for production
 ```
 npm run build
