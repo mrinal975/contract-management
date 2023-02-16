@@ -1,5 +1,5 @@
 <template>
-
+View Contact
 </template>
 
 <script>

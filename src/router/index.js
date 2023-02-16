@@ -1,9 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ContactManager from '../views/ContactManager.vue'
-import AddContact from '../views/AddContact.vue'
-import EditContact from '../views/EditContact.vue'
-import ViewContact from '../views/ViewContact.vue'
 const routes = [
   {
     path: '/',
@@ -33,6 +29,11 @@ const routes = [
     path: '/contacts/view/:contactId',
     name: 'ViewContact',
     component: () => import(/* webpackChunkName: "about" */ '../views/ViewContact.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'PageNotFound',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PageNotFound.vue')
   }
 ]
 
