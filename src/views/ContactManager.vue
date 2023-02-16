@@ -29,6 +29,45 @@
             </form>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card my-2 list-group-item-success">
+                    <div class="card-body">
+                        <div class="row align-item-center">
+                            <div class="col-sm-3">
+                                <img src="../assets/download.png" alt="image not found" class="contact-img">
+                            </div>
+                            <div class="col-sm-7">
+                                 <ul class="list-group">
+                                    <li class="list-group-item">
+                                        Name: <span class="fw-bold">Mrinal</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Email: <span class="fw-bold">Mrina</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Phone: <span class="fw-bold">+0163</span>
+                                    </li>
+                                 </ul>
+                            </div>
+                            <div class="col-sm-2 d-flex flex-column justify-content-center align-item-center">
+                                <router-link to="/contracts/view/:contractId" class="btn btn-warning my-1 ">
+                                    <i class="fa fa-eye"> </i>
+                                </router-link>
+                                <router-link to="/contracts/edit/:contractId" class="btn btn-primary my-1">
+                                    <i class="fa fa-pen"> </i>
+                                </router-link>
+                                <router-link to="/contracts/view/:contractId" class="btn btn-danger my-1">
+                                    <i class="fa fa-trash"> </i>
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
