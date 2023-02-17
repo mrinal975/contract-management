@@ -15,13 +15,21 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-md-6">
-        <form>
+        <form @submit.prevent="submitCreate()">
           <div class="mb-2">
             <input
               type="text"
               v-model="contact.name"
               class="form-control"
               placeholder="Name"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              type="text"
+              v-model="contact.email"
+              class="form-control"
+              placeholder="Email"
             />
           </div>
           <div class="mb-2">
@@ -56,14 +64,20 @@
               placeholder="Title"
             />
           </div>
-          <div class="mb-2">
-            <selector class="form-control" v-if="groups.length > 0">
-              <option value="">Select Group</option>
-              <option value="" v-for="group of group" :key="group.id">
+          <div class="form-group">
+            <select class="form-control" 
+            v-model="contact.groupId"
+            v-if="groups.length > 0">
+            <option value="">Select Group</option>
+            <option  
+              :value="group.id" 
+              v-for="group of groups" 
+              :key="group.id"
+              >
                 {{ group.name }}
-              </option>
-            </selector>
-          </div>
+            </option>
+            </select>
+        </div>
           <div class="mb-2">
             <input type="submit" class="btn btn-success" value="create" />
           </div>
@@ -71,8 +85,8 @@
       </div>
       <div class="col-md-4">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf4gZrd_VO1NSruRjZiHRpTqeBGStyLtYKpHyKnfGJfg&s"
-          class="contact-img"
+            :src="contact.img"
+            class="contact-img"
         />
       </div>
     </div>
@@ -94,16 +108,31 @@ export default {
         img: "",
         groupId: "",
       },
-      groups: [],
+      groups: [], 
     };
   },
   created: async function () {
     try {
       let response = await ContactService.getAllGroups();
-      this.groups = response;
+      this.groups = response.data;
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
   },
+
+  methods:{
+    submitCreate:async function(){
+        try{
+            let response = await ContactService.createContact(this.contact);
+            if(response){
+                return this.$router.push('/contacts');
+            }
+            return this.$router.push('/contacts/add');
+        }catch(error){
+            console.log(error);
+        }
+
+    }
+  }
 };
 </script>

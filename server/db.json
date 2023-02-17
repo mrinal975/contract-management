@@ -49,6 +49,26 @@
       "mobile": "984393432",
       "img": "https://www.indiewire.com/wp-content/uploads/2022/01/AP21190389554952-e1643225561835.jpg",
       "groupId": "1"
+    },
+    {
+      "name": "Mrinal Mallik",
+      "company": "Mrinal Mallik",
+      "email": "mrinal.swe.975@gmail.com",
+      "title": "Test",
+      "mobile": 1632319339,
+      "img": "https://images.ctfassets.net/kdawwlsweh27/73v8l2HnjGv3e5UmXFwUMc/cdff55fc7def178242934a43276f515e/home-hero-banner-image.png",
+      "groupId": 2,
+      "id": 6
+    },
+    {
+      "name": "Mrinal Mallik",
+      "company": "Mrinal Mallik",
+      "email": "mrinal.mallik.se@gmail.com",
+      "title": "d",
+      "mobile": 1632319339,
+      "img": "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
+      "groupId": 5,
+      "id": 7
     }
   ],
   "groups": [
