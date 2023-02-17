@@ -12,6 +12,7 @@
             </div>
         </div>
     </div>
+    
   <!-- Spinner -->
   <div v-if="loading">
     <div class="container">

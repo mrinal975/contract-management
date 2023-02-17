@@ -11,7 +11,6 @@
       </div>
     </div>
   </div>
-  <pre>{{ contact }}</pre>
   <div class="container mt-3">
     <div class="row">
       <div class="col-md-6">
@@ -77,7 +76,7 @@
                 {{ group.name }}
             </option>
             </select>
-        </div>
+          </div>
           <div class="mb-2">
             <input type="submit" class="btn btn-success" value="create" />
           </div>
