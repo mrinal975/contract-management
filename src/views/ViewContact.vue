@@ -12,32 +12,42 @@
             </div>
         </div>
     </div>
-
+  <!-- Spinner -->
+  <div v-if="loading">
     <div class="container">
+      <div class="row">
+        <div class="col">
+          <Spinner />
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container" v-if="!loading">
         <div class="row align-items-center">
             <div class="col-md-4 ">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf4gZrd_VO1NSruRjZiHRpTqeBGStyLtYKpHyKnfGJfg&s"
+                <img :src="contact.img"
                 class="contact-img-big">
             </div>
             <div class="col-md-6">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        Name:  <span class="fw-bold">Name</span>
+                        Name:  <span class="fw-bold">{{ contact.name }}</span>
                     </li>
                     <li class="list-group-item">
-                        email:  <span class="fw-bold">Name</span>
+                        email:  <span class="fw-bold">{{ contact.email }}</span>
                     </li>
                     <li class="list-group-item">
-                        Phone:  <span class="fw-bold">Name</span>
+                        Phone:  <span class="fw-bold">{{ contact.mobile }}</span>
                     </li>
                     <li class="list-group-item">
-                        Company:  <span class="fw-bold">Name</span>
+                        Company:  <span class="fw-bold">{{ contact.company }}</span>
                     </li>
                     <li class="list-group-item">
-                        Title:  <span class="fw-bold">Name</span>
+                        Title:  <span class="fw-bold">{{ contact.title }}</span>
                     </li>
                     <li class="list-group-item">
-                        Group:  <span class="fw-bold">Name</span>
+                        Group:  <span class="fw-bold">{{ group.name }}</span>
                     </li>
                 </ul>
             </div>
@@ -51,11 +61,46 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
+import Spinner from "@/components/Spinner.vue";
+import { ContactService } from '@/service/ContactService';
+
 export default{
-    name:"View Contact"
+    name : "ViewContact",
+    components: { Spinner },
+    
+    data : function(){
+        return {
+            contactId : this.$route.params.contactId,
+            loading : false,
+            contact : {},
+            errorMessage : null,
+            group : {}
+        }
+    },
+
+    created : async function(){
+        try{
+            this.loading = true;
+            let response = await ContactService.getContact(this.contactId);
+            let groupResponse = await ContactService.getGroup(response.data);
+            this.group = groupResponse.data;
+            this.contact = response.data;
+            this.loading = false;
+        }catch(error){
+            this.errorMessage = error;
+            this.loading = false;
+            console.log(error);
+        }
+    },
+
+    method : {
+        isDone : function (){
+            return Object.keys(this.contact).length > 0 && Object.keys(this.group).length>0;
+        }
+    }
+
 }
 </script>

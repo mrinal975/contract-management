@@ -88,19 +88,19 @@
                 class="col-sm-2 d-flex flex-column justify-content-center align-items-center"
               >
                 <router-link
-                  to="/contacts/view/12"
+                  :to="`/contacts/view/${contact.id}`"
                   class="btn btn-warning my-1"
                 >
                   <i class="fa fa-eye"> </i>
                 </router-link>
                 <router-link
-                  to="/contacts/edit/{{contact.id}}"
+                  :to="`/contacts/edit/${contact.id}`"
                   class="btn btn-primary my-1"
                 >
                   <i class="fa fa-pen"> </i>
                 </router-link>
                 <router-link
-                  to="/contacts/view/98"
+                  :to="`/contacts/view/${contact.id}`"
                   class="btn btn-danger my-1"
                 >
                   <i class="fa fa-trash"> </i>
@@ -115,9 +115,11 @@
 </template>
 
 <script>
+import Spinner from "@/components/Spinner.vue";
 import { ContactService } from "@/service/ContactService";
 export default {
   name: "Contact Manager",
+  components: { Spinner },
   data: function () {
     return {
       loading: true,
