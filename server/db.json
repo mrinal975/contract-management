@@ -1,16 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "first name",
-      "company": "Youtube update",
-      "email": "testemail1@gmail.com",
-      "title": "Youtube update",
-      "mobile": "984393432",
-      "img": "https://cdn.pixabay.com/photo/2015/03/30/20/33/heart-700141__480.jpg",
-      "groupId": "group.name"
-    },
-    {
       "id": 2,
       "name": "Second name",
       "company": "Youtube",
@@ -38,16 +28,6 @@
       "title": "Youtube",
       "mobile": "984393432",
       "img": "https://ichef.bbci.co.uk/news/976/cpsprodpb/153FD/production/_126973078_whatsubject.jpg",
-      "groupId": "1"
-    },
-    {
-      "id": 5,
-      "name": "Fifth name",
-      "company": "Youtube",
-      "email": "testemail1@gmail.com",
-      "title": "Youtube",
-      "mobile": "984393432",
-      "img": "https://www.indiewire.com/wp-content/uploads/2022/01/AP21190389554952-e1643225561835.jpg",
       "groupId": "1"
     },
     {

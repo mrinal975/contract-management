@@ -99,12 +99,12 @@
                 >
                   <i class="fa fa-pen"> </i>
                 </router-link>
-                <router-link
-                  :to="`/contacts/view/${contact.id}`"
+                <button
+                  @click="deleteContact(contact.id)"
                   class="btn btn-danger my-1"
                 >
                   <i class="fa fa-trash"> </i>
-                </router-link>
+                </button>
               </div>
             </div>
           </div>
@@ -128,17 +128,34 @@ export default {
     };
   },
   created: async function () {
-    try {
-      this.loading = true;
+    this.loading = true;
+    this.getAllContact();
+    this.loading = false;
+  },
+
+  methods: {
+    getAllContact: async function(){
+      try {
       let response = await ContactService.getAllContact();
       this.contacts = response.data;
-      this.loading = false;
     } catch (error) {
       this.errorMessage = error;
-      this.loading = false;
       console.log(error);
     }
+    },
+
+    deleteContact: async function(contactId) {
+      try{
+        this.loading = true;
+        ContactService.deleteContact(contactId);
+        this.getAllContact();
+        this.loading = false;
+      }
+      catch(error){
+        
+        console.log('error', error);
+      }
+    }
   },
-  methods: {},
 };
 </script>
